@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <p>{{ document.data.nombre }}</p>
+  <ion-button (click)="clicBotonBorrar()">Borrar personaje</ion-button>
+  <ion-button (click)="clicBotonModificar()">Modificar personaje</ion-button>
+</ion-content>

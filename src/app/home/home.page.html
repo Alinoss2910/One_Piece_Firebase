@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      One Piece
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input [(ngModel)]="personajeEditando.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Banda</ion-label>
+    <ion-input [(ngModel)]="personajeEditando.banda"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Recompensa</ion-label>
+    <ion-input [(ngModel)]="personajeEditando.recompensa" type="number"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="clicBotonInsertar()">Añadir Personaje</ion-button>
+
+  <h1>LISTA DE PERSONAJES</h1>
+
+  <ion-list>
+    <ion-item *ngFor="let documentPersonaje of arrayColeccionPersonajes">
+        <ion-card (click)="selecPersonaje(documentPersonaje)">
+          <ion-card-content>
+            <h2>{{ documentPersonaje.data.nombre }}</h2>
+            <h3>{{ documentPersonaje.data.banda }}</h3>
+            <h3>{{ documentPersonaje.data.recompensa }}</h3>
+          </ion-card-content>
+        </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

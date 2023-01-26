@@ -1,0 +1,7 @@
+{
+  "name": "One_Piece_Firestore",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
