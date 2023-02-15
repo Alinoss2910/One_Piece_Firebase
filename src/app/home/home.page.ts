@@ -58,22 +58,9 @@ export class HomePage {
     this.router.navigate(['/detalle', this.idPersonajeSelec]);
   }
 
-  clicBotonBorrar() {
-    this.firestoreService.borrar("personajes", this.idPersonajeSelec).then(() => {
-      //Actualizar lista completa
-      this.obtenerListaPersonajes();
-      // Limpiar datos de la pantalla
-      this.personajeEditando = {} as Personaje
-    })
+  agregarPersonaje() {
+    this.router.navigate(['/detalle/nuevo']);
   }
-
-  clicBotonModificar() {
-    this.firestoreService.actualizar("personajes", this.idPersonajeSelec, this.personajeEditando).then(() => {
-      // Actualizar la lista completa
-      this.obtenerListaPersonajes();
-      // Limpiar datos de pantalla
-      this.personajeEditando = {} as Personaje;
-    })
-  }
+  
 
 }

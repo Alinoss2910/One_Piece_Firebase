@@ -1,11 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>detalle</ion-title>
+    <ion-title>Detalle</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <p>{{ document.data.nombre }}</p>
-  <ion-button (click)="clicBotonBorrar()">Borrar personaje</ion-button>
-  <ion-button (click)="clicBotonModificar()">Modificar personaje</ion-button>
+  <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input [(ngModel)]="document.data.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Banda</ion-label>
+    <ion-input [(ngModel)]="document.data.banda"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Recompensa</ion-label>
+    <ion-input [(ngModel)]="document.data.recompensa" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Imagen</ion-label>
+    <ion-button (click)="uploadImagePicker()">Subir Imagen</ion-button>
+  </ion-item>
+
+  <ion-button *ngIf="!isNew" (click)="clicBotonBorrar()">Borrar personaje</ion-button>
+  <ion-button (click)="clicBotonModificar()">{{ isNew ? 'Guardar' : 'Modificar' }} personaje</ion-button>
+  <ion-button (click)="volver()">Volver</ion-button>
 </ion-content>
