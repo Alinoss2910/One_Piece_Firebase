@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirestoreService } from '../firestore.service';
 import { Personaje } from '../personaje';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+
 
 @Component({
   selector: 'app-home',
@@ -17,11 +19,15 @@ export class HomePage {
   }];
   idPersonajeSelec: string;
 
-  constructor(private firestoreService: FirestoreService, private router: Router) {
-    //Crear un personaje vacio al empezar
-    this.personajeEditando = {} as Personaje;
+  constructor(
+    private firestoreService: FirestoreService,
+    private router: Router,
+    private socialSharing: SocialSharing
+    ) {
+      //Crear un personaje vacio al empezar
+      this.personajeEditando = {} as Personaje;
 
-    this.obtenerListaPersonajes();
+      this.obtenerListaPersonajes();
   }
 
   clicBotonInsertar() {
@@ -62,5 +68,19 @@ export class HomePage {
     this.router.navigate(['/detalle/nuevo']);
   }
   
+  compartir() {
+    const options = {
+      message: 'Este es mi mensaje para compartir',
+      chooserTitle: 'Compartir con'
+    };
+    
+    this.socialSharing.shareWithOptions(options)
+      .then(() => {
+        console.log('Mensaje compartido correctamente');
+      }).catch((error) => {
+        console.log('Error al compartir el mensaje: ', error);
+      });
+    
+  }
 
 }
