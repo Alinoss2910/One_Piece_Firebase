@@ -83,4 +83,8 @@ export class HomePage {
     
   }
 
+  llamar() {
+    window.plugins.CallNumber.callNumber(123456789, bypassAppChooser);
+  }
+
 }
