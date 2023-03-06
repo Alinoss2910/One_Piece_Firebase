@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>aboutUs</ion-title>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="home">
+          <ion-icon name="triangle"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="about-us">
+          <ion-icon name="ellipse"></ion-icon>
+          <ion-label>About Us</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <p style="text-align: center;">Este proyecto esta realizado por Airam Linares Ossorio y esta hecho en Ionic</p>
+  <div id="mapId" style="width:50%; height:50%; position: absolute; bottom: 30%; left: 25%; "></div>
+</ion-content>

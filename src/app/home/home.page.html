@@ -1,14 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-  <ion-title>
-  One Piece
-  </ion-title>
+  <ion-title>One Piece</ion-title>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="triangle"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="about-us">
+        <ion-icon name="ellipse"></ion-icon>
+        <ion-label>About Us</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
   </ion-toolbar>
-  </ion-header>
+</ion-header>
   
   <ion-content [fullscreen]="true">
   
-    <h1>LISTA DE PERSONAJES</h1>
+    <h1>Lista De Personaje One Piece</h1>
     <ion-grid>
       <ion-row>
         <ion-col *ngFor="let documentPersonaje of arrayColeccionPersonajes">
@@ -28,6 +38,8 @@
   </ion-fab-button>
   <ion-fab-button (click)="compartir()" id="share">
     <ion-icon name="share"></ion-icon>
-    </ion-fab-button>
-  
+  </ion-fab-button>
+  <ion-fab-button (click)="llamar()" id="call">
+    <ion-icon name="call"></ion-icon>
+  </ion-fab-button>
   </ion-content>

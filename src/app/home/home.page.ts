@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FirestoreService } from '../firestore.service';
 import { Personaje } from '../personaje';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
-
+import { CallNumber } from 'capacitor-call-number';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +18,7 @@ export class HomePage {
     data: {} as Personaje
   }];
   idPersonajeSelec: string;
+  phoneNumber: string="123456789";
 
   constructor(
     private firestoreService: FirestoreService,
@@ -83,8 +84,8 @@ export class HomePage {
     
   }
 
-  llamar() {
-    window.plugins.CallNumber.callNumber(123456789, bypassAppChooser);
+  async llamar() {
+    await CallNumber.call({ number: '622915309', bypassAppChooser: true });
   }
 
 }
